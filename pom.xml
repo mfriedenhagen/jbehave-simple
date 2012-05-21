@@ -106,6 +106,7 @@
                         <id>embeddable-stories</id>
                         <phase>integration-test</phase>
                         <configuration>
+                            <scope>test</scope>
                             <includes>
                                 <include>${embeddables}</include>
                             </includes>
