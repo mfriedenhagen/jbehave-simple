@@ -11,6 +11,7 @@
         <jbehave.core.version>3.6.3</jbehave.core.version>
         <jbehave.site.version>3.1.1</jbehave.site.version>
         <embeddables>**/*Stories.java</embeddables>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
     <dependencies>
@@ -18,6 +19,7 @@
             <groupId>org.jbehave</groupId>
             <artifactId>jbehave-core</artifactId>
             <version>${jbehave.core.version}</version>
+            <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>org.jbehave</groupId>
@@ -25,34 +27,43 @@
             <version>${jbehave.core.version}</version>
             <classifier>resources</classifier>
             <type>zip</type>
+            <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>org.jbehave.site</groupId>
             <artifactId>jbehave-site-resources</artifactId>
             <version>${jbehave.site.version}</version>
             <type>zip</type>
+            <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>de.codecentric</groupId>
             <artifactId>jbehave-junit-runner</artifactId>
             <version>1.0.0</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+            <version>1.0.3</version>
+            <scope>test</scope>
         </dependency>
     </dependencies>
 
     <build>
-        <resources>
-            <resource>
-                <directory>src/main/java</directory>
+        <testResources>
+            <testResource>
+                <directory>src/test/java</directory>
                 <filtering>true</filtering>
                 <excludes>
                     <exclude>**/*.java</exclude>
                 </excludes>
-            </resource>
-            <resource>
-                <directory>src/main/resources</directory>
+            </testResource>
+            <testResource>
+                <directory>src/test/resources</directory>
                 <filtering>true</filtering>
-            </resource>
-        </resources>
+            </testResource>
+        </testResources>
         <pluginManagement>
             <plugins>
                 <plugin>
